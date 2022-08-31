@@ -1,0 +1,34 @@
+.git
+.gitignore
+.idea
+.tools-version
+
+# Rails
+*.rbc
+.rspec
+/coverage/
+/spec/tmp
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+config/master.key
+
+# env
+.env
+/.bundle
+/vendor/bundle
+/storage/*
+!/storage/.keep
+
+# Ruvy
+*.gem
+/.config
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
