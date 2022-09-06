@@ -1,5 +1,5 @@
 module Types
-  module NodeType # rubocop:disable GraphQL/ObjectDescription
+  module NodeType
     include Types::BaseInterface
     # Add the `id` field
     include GraphQL::Types::Relay::NodeBehaviors

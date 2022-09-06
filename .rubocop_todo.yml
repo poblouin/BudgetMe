@@ -41,6 +41,7 @@ Style/Documentation:
     - 'app/graphql/types/mutation_type.rb'
     - 'app/graphql/types/query_type.rb'
     - 'config/application.rb'
+    - 'db/migrate/*.rb'
 
 # Offense count: 39
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -81,3 +82,9 @@ Style/SpecialGlobalVars:
 # URISchemes: http, https
 Layout/LineLength:
   Max: 198
+
+GraphQL/FieldDescription:
+  Enabled: false
+
+GraphQL/ObjectDescription:
+  Enabled: false
