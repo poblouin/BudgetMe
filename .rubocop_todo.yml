@@ -33,15 +33,7 @@ Naming/MethodParameterName:
 # Offense count: 5
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/controllers/graphql_controller.rb'
-    - 'app/graphql/budgetme_schema.rb'
-    - 'app/graphql/types/mutation_type.rb'
-    - 'app/graphql/types/query_type.rb'
-    - 'config/application.rb'
-    - 'db/migrate/*.rb'
+  Enabled: false
 
 # Offense count: 39
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -84,6 +76,12 @@ Layout/LineLength:
   Max: 198
 
 GraphQL/FieldDescription:
+  Enabled: false
+
+GraphQL/ArgumentDescription:
+  Enabled: false
+
+GraphQL/ExtractInputType:
   Enabled: false
 
 GraphQL/ObjectDescription:
