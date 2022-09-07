@@ -11,8 +11,17 @@ module Types
           null: false,
           description: 'Return a list of transactions'
 
+    field :transaction_categories,
+          [Types::TransactionCategoryType],
+          null: false,
+          description: 'Return a list of transaction categories'
+
     def transactions
       Transaction.all
+    end
+
+    def transaction_categories
+      TransactionCategory.all
     end
   end
 end

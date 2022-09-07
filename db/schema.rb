@@ -15,14 +15,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_012827) do
   enable_extension "plpgsql"
 
   create_table "transaction_categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.decimal "amount"
-    t.date "date"
+    t.decimal "amount", null: false
+    t.date "date", null: false
     t.string "description"
     t.bigint "transaction_category_id", null: false
     t.datetime "created_at", null: false
