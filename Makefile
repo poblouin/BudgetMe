@@ -5,6 +5,9 @@ DC_PREFIX := docker compose exec api
 bundle-install:
 	$(DC_PREFIX) bundle
 
+docker-volume-init:
+	docker volume create --name=pg_data
+
 # DB
 db-create:
 	$(DC_PREFIX) bundle exec rake db:create

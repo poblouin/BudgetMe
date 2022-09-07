@@ -12,24 +12,34 @@ MVP will contain:
 - Create transaction category
 - Create transaction
 
+## Development
+
+### Commands
+
+See the `Makefile` for a list of helpful commands for development.
+
 * Database creation
 
 ```shell
 # Create the docker volume first
-docker volume create --name=pg_data
+make docker-volume-init
 ```
 
 * Database initialization
 
 ```shell
 # Start the containers then run
-docker compose run api rake db:create
+make db-create
 ```
 
 * How to run the test suite
 
 ```shell
-docker compose exec api rspec
+# Run all the tests
+make t
+
+# Run tests from a single file
+make tf path/to/file
 ```
 
 * Services (job queues, cache servers, search engines, etc.)
