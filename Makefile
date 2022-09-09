@@ -31,6 +31,16 @@ db-rollback-test:
 lint:
 	$(DC_PREFIX) bundle exec rubocop -A
 
+lint-staged:
+	$(DC_PREFIX) bundle exec rubocop -A `git diff --name-only --cached | grep '\.rb'`
+
+brakeman:
+	$(DC_PREFIX) bundle exec brakeman --no-pager
+
+# Graphql
+schema-compare:
+	$(DC_PREFIX) rake graphql:schema:idl_new && schema_comparator compare schema.graphql.new schema.graphql
+
 # Rails generate
 add-migration:
 	$(DC_PREFIX) bundle exec rails g migration $(RUN_ARGS)

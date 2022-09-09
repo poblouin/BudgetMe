@@ -16,7 +16,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'brakeman', '~> 5.3.1'
   gem 'graphiql-rails', '~> 1.8.0'
+  gem 'graphql-schema_comparator', '~>1.1.1'
+  gem 'lefthook', '~> 1.1.1'
   gem 'rubocop', '~> 1.35.1', require: false
   gem 'rubocop-graphql', '~> 0.14.6', require: false
   gem 'rubocop-rails', '~> 2.15.2', require: false

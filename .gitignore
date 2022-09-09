@@ -23,3 +23,5 @@
 /config/master.key
 
 .idea
+
+schema.graphql.new

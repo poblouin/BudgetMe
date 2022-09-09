@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    audit:
+      run: make brakeman
+    rubocop:
+      run: make lint-staged
+    graphql:
+      run: make schema-compare
