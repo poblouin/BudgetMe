@@ -37,6 +37,9 @@ lint-staged:
 brakeman:
 	$(DC_PREFIX) bundle exec brakeman --no-pager
 
+pre-commit:
+	$(DC_PREFIX) lefthook run pre-commit
+
 # Graphql
 schema-compare:
 	$(DC_PREFIX) rake graphql:schema:idl_new && schema_comparator compare schema.graphql.new schema.graphql

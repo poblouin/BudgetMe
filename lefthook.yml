@@ -2,8 +2,8 @@ pre-commit:
   parallel: true
   commands:
     audit:
-      run: make brakeman
+      run: bundle exec brakeman --no-pager
     rubocop:
-      run: make lint-staged
+      run: bundle exec rubocop -A `git diff --name-only --cached | grep '\.rb'`
     graphql:
-      run: make schema-compare
+      run: rake graphql:schema:idl_new && schema_comparator compare schema.graphql.new schema.graphql
