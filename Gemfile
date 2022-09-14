@@ -17,6 +17,7 @@ end
 
 group :development do
   gem 'brakeman', '~> 5.3.1'
+  gem 'bundler-audit', '~> 0.9.1'
   gem 'graphiql-rails', '~> 1.8.0'
   gem 'graphql-schema_comparator', '~>1.1.1'
   gem 'lefthook', '~> 1.1.1'
