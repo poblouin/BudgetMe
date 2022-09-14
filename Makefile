@@ -28,14 +28,17 @@ db-rollback-test:
 	$(DC_PREFIX) bundle exec rake db:rollback RAILS_ENV=test
 
 # Dev
+brakeman:
+	$(DC_PREFIX) bundle exec brakeman --no-pager
+
+bundle-audit:
+	$(DC_PREFIX) bundle exec bundler-audit --update
+
 lint:
 	$(DC_PREFIX) bundle exec rubocop -A
 
 lint-staged:
 	$(DC_PREFIX) bundle exec rubocop -A `git diff --name-only --cached | grep '\.rb'`
-
-brakeman:
-	$(DC_PREFIX) bundle exec brakeman --no-pager
 
 pre-commit:
 	$(DC_PREFIX) lefthook run pre-commit
