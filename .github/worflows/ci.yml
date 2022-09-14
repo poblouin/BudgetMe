@@ -1,0 +1,50 @@
+name: CI
+
+on: [push]
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+      container:
+        image: ruby:3.1.2
+
+      services:
+        postgres:
+          image: postgres:14.5
+          env:
+            POSTGRES_USER: budgetme
+            POSTGRES_PASSWORD: budgetme
+            POSTGRES_DB: budgetme_test
+          ports:
+            - 5432:5432
+          options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+      steps:
+        - uses: actions/checkout@v1
+
+        - name: Gem cache
+          id: cache-bundle
+          uses: actions/cache@v1
+          with:
+            path: vendor/bundle
+            key: bundle-${{ hashFiles('**/Gemfile.lock') }}
+
+        - name: Bundle install
+          env:
+            RAILS_ENV: test
+          run: |
+            gem install bundler
+            bundle install --jobs 4 --retry 3 --path vendor/bundle
+
+        - name: Run tests
+          env:
+            PGHOST: postgres
+            PGUSER: postgres
+            PGPORT: ${{ job.services.postgres.ports[5432] }}
+            RAILS_ENV: test
+          run: |
+            bin/rails db:create db:schema:load
+            bundle exec rspec
+
+        - name: Lint
+          run: bundle exec rubocop
