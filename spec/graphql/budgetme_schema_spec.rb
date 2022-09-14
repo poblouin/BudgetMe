@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe BudgetmeSchema do
   it 'matches the dumped schema' do
     aggregate_failures do

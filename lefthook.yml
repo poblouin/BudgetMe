@@ -1,8 +1,6 @@
 pre-commit:
   parallel: true
   commands:
-    audit:
-      run: bundle exec brakeman --no-pager
     rubocop:
       run: bundle exec rubocop -A `git diff --name-only --cached | grep '\.rb'`
     graphql:

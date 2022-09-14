@@ -3,3 +3,6 @@ require:
   - rubocop-graphql
   - rubocop-rails
   - rubocop-rspec
+
+AllCops:
+  NewCops: enable
