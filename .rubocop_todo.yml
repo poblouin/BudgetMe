@@ -84,5 +84,8 @@ GraphQL/ArgumentDescription:
 GraphQL/ExtractInputType:
   Enabled: false
 
+GraphQL/ExtractType:
+  Enabled: false
+
 GraphQL/ObjectDescription:
   Enabled: false

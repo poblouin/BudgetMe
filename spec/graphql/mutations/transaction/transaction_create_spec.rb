@@ -1,9 +1,9 @@
-RSpec.describe Mutations::CreateTransaction do
+RSpec.describe Mutations::Transaction::TransactionCreate do
   let(:transaction_category) { create(:transaction_category) }
   let(:query) do
     <<~GQL
       mutation {
-        createTransaction(
+        transactionCreate(
           input: {
             params: {
               amount: 20.99,
@@ -18,10 +18,10 @@ RSpec.describe Mutations::CreateTransaction do
       }
     GQL
   end
+  let(:result) { BudgetmeSchema.execute(query) }
 
   describe 'success' do
-    let(:result) { BudgetmeSchema.execute(query) }
-    let(:transaction) { result.to_h['data']['createTransaction']['transaction'] }
+    let(:transaction) { result.to_h['data']['transactionCreate']['transaction'] }
 
     it 'creates a transaction' do
       expect(transaction).not_to be_nil
@@ -29,14 +29,13 @@ RSpec.describe Mutations::CreateTransaction do
   end
 
   describe 'failure' do
-    let(:result) { BudgetmeSchema.execute(query) }
     let(:error) { result.to_h['errors'].first }
 
     context 'when the amount is missing' do
       let(:query) do
         <<~GQL
           mutation {
-            createTransaction(
+            transactionCreate(
               input: {
                 params: {
                   date: "2022-09-06",
@@ -60,7 +59,7 @@ RSpec.describe Mutations::CreateTransaction do
       let(:query) do
         <<~GQL
           mutation {
-            createTransaction(
+            transactionCreate(
               input: {
                 params: {
                   amount: 10.99,

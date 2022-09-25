@@ -1,6 +1,6 @@
 module Queries
   class FetchTransactions < Queries::BaseQuery
-    type [Types::TransactionType], null: false
+    type [Types::Transaction::TransactionType], null: false
 
     def resolve
       Transaction.all

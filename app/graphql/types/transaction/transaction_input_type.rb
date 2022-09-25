@@ -1,5 +1,5 @@
 module Types
-  module Input
+  module Transaction
     class TransactionInputType < Types::BaseInputObject
       argument :amount, Float, required: true
       argument :date, GraphQL::Types::ISO8601Date, required: true
