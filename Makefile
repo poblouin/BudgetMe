@@ -47,6 +47,9 @@ pre-commit:
 schema-compare:
 	$(DC_PREFIX) rake graphql:schema:idl_new && schema_comparator compare schema.graphql.new schema.graphql
 
+schema-dump:
+	$(DC_PREFIX) rake graphql:schema:dump
+
 # Rails generate
 add-migration:
 	$(DC_PREFIX) bundle exec rails g migration $(RUN_ARGS)

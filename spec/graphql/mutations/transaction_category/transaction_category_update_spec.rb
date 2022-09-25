@@ -22,7 +22,6 @@ RSpec.describe Mutations::TransactionCategory::TransactionCategoryUpdate do
     let(:return_obj) { result.to_h['data']['transactionCategoryUpdate']['transactionCategory'] }
 
     it 'updates the transaction category' do
-      pp return_obj
       expect(return_obj).not_to be_nil
     end
 
