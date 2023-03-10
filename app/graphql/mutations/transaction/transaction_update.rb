@@ -3,7 +3,7 @@
 module Mutations
   module Transaction
     class TransactionUpdate < BaseMutation
-      description "Updates a transaction by id"
+      description 'Updates a transaction by id'
 
       field :transaction, Types::Transaction::TransactionType, null: false
 
@@ -12,7 +12,7 @@ module Mutations
 
       def resolve(id:, params:)
         transaction = ::Transaction.find(id)
-        raise GraphQL::ExecutionError.new "Error updating transaction", extensions: transaction.errors.to_hash unless transaction.update(**params)
+        raise GraphQL::ExecutionError.new 'Error updating transaction', extensions: transaction.errors.to_hash unless transaction.update(**params)
 
         { transaction: }
       end
