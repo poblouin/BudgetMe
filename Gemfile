@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/poblouin/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.2.1'
 gem 'bootsnap', require: false
-gem 'graphql', '~> 2.0.13'
+gem 'graphql', '~> 2.0.18'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
-gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
+gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'pry-byebug', '~> 3.10.1'
-  gem 'rspec-rails', '~> 6.0.0.rc1'
+  gem 'rspec-rails', '~> 6.0.1'
   gem 'shoulda-matchers', '~> 5.1.0'
 end
 

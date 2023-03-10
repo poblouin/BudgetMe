@@ -1,4 +1,4 @@
-FROM ruby:3.1.2
+FROM ruby:3.2.1-bullseye
 WORKDIR /api
 COPY Gemfile /api/Gemfile
 COPY Gemfile.lock /api/Gemfile.lock
