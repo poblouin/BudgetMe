@@ -14,6 +14,10 @@ MVP will contain:
 
 ## Development
 
+### Graphiql
+
+This project uses graphiql. The UI is accessible at http://0.0.0.0:3000/graphiql.
+
 ### Commands
 
 See the `Makefile` for a list of helpful commands for development.
