@@ -26,7 +26,7 @@ RSpec.describe Mutations::Transaction::TransactionUpdate do
       expect(return_obj).not_to be_nil
     end
 
-    it 'updates the transaction with the proper value' do
+    it 'updates the transaction with the correct value' do
       expect(return_obj.fetch('amount')).to eq(19.99)
     end
   end

@@ -2,7 +2,7 @@ pre-commit:
   parallel: false
   commands:
     rubocop:
-      run: bundle exec rubocop -A `git diff --name-only --cached --diff-filter=ACM | grep '\.rb'`
+      run: bundle exec rubocop -A `git diff --name-only --cached --diff-filter=ACM | grep '\.rb'` && git add .
     graphql-compare:
       run: rake graphql:schema:idl_new && schema_comparator compare schema.graphql.new schema.graphql
     graphql-dump:

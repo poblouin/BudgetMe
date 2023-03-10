@@ -1,13 +1,13 @@
-RSpec.describe Mutations::TransactionCategory::TransactionCategoryDelete do
-  let(:transaction_category) { create(:transaction_category) }
+RSpec.describe Mutations::Transaction::TransactionDelete do
+  let(:transaction) { create(:transaction) }
   let(:query) do
     <<~GQL
       mutation {
-        transactionCategoryDelete(
+        transactionDelete(
           input: {
-            id: #{transaction_category.id}
+            id: #{transaction.id}
           }) {
-          transactionCategory {
+          transaction {
             id
           }
         }
@@ -17,14 +17,14 @@ RSpec.describe Mutations::TransactionCategory::TransactionCategoryDelete do
   let(:result) { BudgetmeSchema.execute(query) }
 
   describe 'success' do
-    let(:return_obj) { result.to_h['data']['transactionCategoryDelete']['transactionCategory'] }
+    let(:return_obj) { result.to_h['data']['transactionDelete']['transaction'] }
 
-    it 'deletes the transaction category' do
+    it 'deletes the transaction' do
       expect(return_obj).not_to be_nil
     end
 
-    it 'deletes the correct transaction category' do
-      expect(return_obj.fetch('id').to_i).to eq(transaction_category.id)
+    it 'deletes the correct transaction' do
+      expect(return_obj.fetch('id').to_i).to eq(transaction.id)
     end
   end
 
@@ -33,11 +33,11 @@ RSpec.describe Mutations::TransactionCategory::TransactionCategoryDelete do
     let(:query) do
       <<~GQL
         mutation {
-          transactionCategoryDelete(
+          transactionDelete(
             input: {
               id: 99
             }) {
-            transactionCategory {
+            transaction {
               id
             }
           }

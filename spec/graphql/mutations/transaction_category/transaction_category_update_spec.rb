@@ -25,7 +25,7 @@ RSpec.describe Mutations::TransactionCategory::TransactionCategoryUpdate do
       expect(return_obj).not_to be_nil
     end
 
-    it 'updates the transaction category with the proper value' do
+    it 'updates the transaction category with the correct value' do
       expect(return_obj.fetch('name')).to eq('NewName')
     end
   end
