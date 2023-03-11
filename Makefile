@@ -58,6 +58,9 @@ add-model:
 	$(DC_PREFIX) bundle exec rails g model $(RUN_ARGS)
 
 # Runners
+run-be:
+	$(DC_PREFIX) bundle exec $(RUN_ARGS)
+
 run-console:
 	$(DC_PREFIX) bundle exec rails console
 
@@ -70,6 +73,7 @@ run-all-test:
 run-test-file:
 	$(DC_PREFIX) bundle exec rspec -P $(RUN_ARGS)
 
+be: run-be
 c: run-console
 g: run-generate
 t: run-all-test

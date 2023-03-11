@@ -11,6 +11,7 @@ require 'action_text/engine'
 require 'action_view/railtie'
 # Needed for GraphiQL
 require 'sprockets/railtie'
+require 'csv'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

@@ -22,7 +22,6 @@ RSpec.describe Mutations::Transaction::TransactionUpdate do
     let(:return_obj) { result.to_h['data']['transactionUpdate']['transaction'] }
 
     it 'updates the transaction' do
-      pp result
       expect(return_obj).not_to be_nil
     end
 
