@@ -3,7 +3,23 @@
 .idea
 .tools-version
 
-# Rails
+# env
+.env*
+/.bundle
+/vendor/bundle
+/storage/*
+!/storage/.keep
+
+# Backend
+*.gem
+/.config
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
 *.rbc
 .rspec
 /coverage/
@@ -15,20 +31,5 @@
 
 config/master.key
 
-# env
-.env*
-/.bundle
-/vendor/bundle
-/storage/*
-!/storage/.keep
-
-# Ruvy
-*.gem
-/.config
-/InstalledFiles
-/pkg/
-/spec/reports/
-/spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
+# Frontend
+node_modules

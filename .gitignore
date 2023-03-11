@@ -4,6 +4,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+*.log
+logs
 !/log/.keep
 !/tmp/.keep
 
@@ -25,3 +27,9 @@
 .idea
 
 schema.graphql.new
+
+## Frontend
+npm-debug.log*
+node_modules
+dist
+*.local
