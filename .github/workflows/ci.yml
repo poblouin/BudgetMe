@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ "main" ]
 jobs:
-  test:
+  test-api:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -31,7 +31,7 @@ jobs:
       - name: Run tests
         run: bundle exec rspec
 
-  lint:
+  lint-api:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -46,3 +46,18 @@ jobs:
         run: bundle exec brakeman -q -w2
       - name: Lint Ruby files
         run: bundle exec rubocop --parallel
+
+  lint-ui:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts'
+      - name: Install dependencies
+        working-directory: ./ui
+        run: npm ci
+      - name: Run ESLint
+        working-directory: ./ui
+        run: npm run lint
