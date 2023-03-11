@@ -7,4 +7,6 @@ pre-commit:
       run: rake graphql:schema:idl_new && schema_comparator compare schema.graphql.new schema.graphql
     graphql-dump:
       run: rake graphql:schema:dump && git add ./schema.graphql ./schema.json
+    eslint:
+      run: cd ui && npm run lint:fix && git add . && cd --
 
