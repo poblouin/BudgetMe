@@ -1,5 +1,5 @@
 FROM node:lts-bullseye
 
 WORKDIR /app
-COPY package.json package-lock.json vite.config.js ./
+COPY package.json package-lock.json ./
 RUN npm ci
