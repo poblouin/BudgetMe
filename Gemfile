@@ -6,7 +6,7 @@ gem 'bootsnap', require: false
 gem 'graphql', '~> 2.0.18'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
-gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
+gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.2.0'
