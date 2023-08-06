@@ -65,6 +65,9 @@ add-model:
 	$(DC_API_PREFIX) bundle exec rails g model $(RUN_ARGS)
 
 # Runners backend
+run-rake:
+	$(DC_API_PREFIX) rake $(RUN_ARGS)
+
 run-be:
 	$(DC_API_PREFIX) bundle exec $(RUN_ARGS)
 
@@ -80,6 +83,7 @@ run-all-test:
 run-test-file:
 	$(DC_API_PREFIX) bundle exec rspec -P $(RUN_ARGS)
 
+r: run-rake
 be: run-be
 c: run-console
 g: run-generate

@@ -1,6 +1,6 @@
 module Transactions
   module Importers
-    class Tangerine
+    class Cibc
       def initialize(csv_file:)
         @csv_file = csv_file
       end
