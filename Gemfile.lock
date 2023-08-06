@@ -243,26 +243,26 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  brakeman (~> 5.3.1)
-  bundler-audit (~> 0.9.1)
-  factory_bot_rails (~> 6.2.0)
-  graphiql-rails (~> 1.8.0)
-  graphql (~> 2.0.18)
-  graphql-schema_comparator (~> 1.1.1)
-  lefthook (~> 1.1.1)
-  pg (~> 1.1)
-  pry-byebug (~> 3.10.1)
-  puma (~> 5.0)
-  rails (~> 7.0.4, >= 7.0.4.3)
-  rspec-rails (~> 6.0.1)
-  rubocop (~> 1.35.1)
-  rubocop-graphql (~> 0.14.6)
-  rubocop-rails (~> 2.15.2)
-  rubocop-rspec (~> 2.12.1)
-  shoulda-matchers (~> 5.1.0)
+  brakeman
+  bundler-audit
+  factory_bot_rails
+  graphiql-rails
+  graphql
+  graphql-schema_comparator
+  lefthook
+  pg
+  pry-byebug
+  puma
+  rails
+  rspec-rails
+  rubocop
+  rubocop-graphql
+  rubocop-rails
+  rubocop-rspec
+  shoulda-matchers
 
 RUBY VERSION
-   ruby 3.2.1p31
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.3.7
