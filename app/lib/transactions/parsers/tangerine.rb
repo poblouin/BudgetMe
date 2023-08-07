@@ -6,10 +6,13 @@ module Transactions
     # Row format: Transaction date,Transaction,Name,Memo,Amount
     class Tangerine
       def parse(row:)
+        category = row[3].match(/Category: (.*)/)[1]
+        category = category == 'Other' ? TransactionCategory::UNCATEGORIZED : category
+
         {
           date: Date.strptime(row[0], '%m/%d/%Y'),
           description: row[2],
-          category: row[3].match(/Category: (.*)/)[1],
+          category:,
           amount: row[4].to_d
         }
       end

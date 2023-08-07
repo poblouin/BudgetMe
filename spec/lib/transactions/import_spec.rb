@@ -10,7 +10,11 @@ RSpec.describe Transactions::Import do
       let(:csv_file) { tangerine_csv }
 
       it 'parses the report and saves the data to the database' do
-        import
+        expect { import }.to change(Transaction, :count).by(10)
+      end
+
+      it 'creates the associated transaction category' do
+        expect { import }.to change(TransactionCategory, :count).by(5)
       end
     end
 
@@ -19,7 +23,11 @@ RSpec.describe Transactions::Import do
       let(:csv_file) { cibc_csv }
 
       it 'parses the report and saves the data to the database' do
-        import
+        expect { import }.to change(Transaction, :count).by(10)
+      end
+
+      it 'creates the associated transaction category' do
+        expect { import }.to change(TransactionCategory, :count).by(1)
       end
     end
   end

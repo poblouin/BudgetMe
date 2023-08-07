@@ -7,7 +7,15 @@ module Transactions
 
     def import
       CSV.foreach(csv_file, headers: headers?) do |row|
-        Rails.logger.debug parser.parse(row: headers? ? row.fields : row)
+        data = parser.parse(row: headers? ? row.fields : row)
+        transaction_category = transaction_category(data.fetch(:category))
+
+        Transaction.create!(
+          amount: data.fetch(:amount),
+          date: data.fetch(:date),
+          description: data.fetch(:description),
+          transaction_category_id: transaction_category.id
+        )
       end
     end
 
@@ -21,6 +29,10 @@ module Transactions
       cibc: false
     }.freeze
 
+    def headers?
+      REPORT_WITH_HEADERS.fetch(bank)
+    end
+
     def parser
       @parser ||= case bank
                   when :tangerine
@@ -32,8 +44,8 @@ module Transactions
                   end
     end
 
-    def headers?
-      REPORT_WITH_HEADERS.fetch(bank)
+    def transaction_category(category)
+      TransactionCategory.find_or_create_by!(name: category || TransactionCategory::UNCATEGORIZED)
     end
   end
 end
