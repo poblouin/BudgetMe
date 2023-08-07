@@ -6,7 +6,9 @@ module Transactions
     end
 
     def import
-      importer.new(csv_file:).import
+      CSV.foreach(csv_file, headers: headers?) do |row|
+        Rails.logger.debug parser.parse(row: headers? ? row.fields : row)
+      end
     end
 
     private
@@ -14,15 +16,24 @@ module Transactions
     attr_reader :bank,
                 :csv_file
 
-    def importer
-      case bank
-      when :tangerine
-        Importers::Tangerine
-      when :cibc
-        Importers::Cibc
-      else
-        raise ArgumentError, "Bank #{bank} is not supported"
-      end
+    REPORT_WITH_HEADERS = {
+      tangerine: true,
+      cibc: false
+    }.freeze
+
+    def parser
+      @parser ||= case bank
+                  when :tangerine
+                    Parsers::Tangerine.new
+                  when :cibc
+                    Parsers::Cibc.new
+                  else
+                    raise ArgumentError, "Bank #{bank} is not supported"
+                  end
+    end
+
+    def headers?
+      REPORT_WITH_HEADERS.fetch(bank)
     end
   end
 end
