@@ -1,8 +1,8 @@
 RSpec.describe Transactions::Import do
   subject(:import) { described_class.new(bank:, csv_file:).import }
 
-  let(:tangerine_csv) { Rails.root.join('spec/fixtures/reports/tangerine.csv') }
-  let(:cibc_csv) { Rails.root.join('spec/fixtures/reports/cibc.csv') }
+  let(:tangerine_csv) { Rails.root.join('spec/fixtures/files/tangerine.csv') }
+  let(:cibc_csv) { Rails.root.join('spec/fixtures/files/cibc.csv') }
 
   describe '#import' do
     context 'when bank is tangerine' do
