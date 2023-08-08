@@ -79,8 +79,8 @@ type Transaction {
   amount: Float!
   createdAt: ISO8601DateTime!
   date: ISO8601Date!
-  description: String
   id: ID!
+  merchantName: String
   transactionCategory: TransactionCategory!
   updatedAt: ISO8601DateTime!
 }
@@ -210,14 +210,14 @@ type TransactionDeletePayload {
 input TransactionInput {
   amount: Float!
   date: ISO8601Date!
-  description: String
+  merchantName: String
   transactionCategoryId: ID!
 }
 
 input TransactionUpdate {
   amount: Float
   date: ISO8601Date
-  description: String
+  merchantName: String
 }
 
 """

@@ -13,7 +13,7 @@ module Transactions
         Transaction.create!(
           amount: data.fetch(:amount),
           date: data.fetch(:date),
-          description: data.fetch(:description),
+          merchant_name: data.fetch(:merchant_name),
           transaction_category_id: transaction_category.id
         )
       end

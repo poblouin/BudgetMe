@@ -11,7 +11,7 @@ module Transactions
 
         {
           date: Date.strptime(row[0], '%m/%d/%Y'),
-          description: row[2],
+          merchant_name: row[2],
           category:,
           amount: row[4].to_d
         }

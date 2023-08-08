@@ -2,7 +2,8 @@
 
 WIP
 
-Budget me is a Mint-like budgeting software to define monthly / yearly budget and track your expenses.
+Budget Me is an opinionated Mint-like budgeting software to define monthly / yearly budget and track your expenses.
+It is mostly tailored for my needs, but could be useful to other folks.
 
 MVP will contain:
 - No support for user, single user only

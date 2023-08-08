@@ -14,7 +14,7 @@ module Transactions
 
         {
           date: Date.parse(row[0]),
-          description: row[1],
+          merchant_name: row[1],
           category: nil,
           amount:
         }

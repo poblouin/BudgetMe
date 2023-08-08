@@ -14,11 +14,13 @@ RSpec.describe Transactions::Import do
       end
 
       it 'creates the transactions with the correct attributes' do
+        import
+
         expect(Transaction.first.attributes.except(:id, :created_at, :updated_at).symbolize_keys).to match(
           hash_including(
             date: Date.new(2023, 8, 3),
             amount: BigDecimal('-23.99'),
-            description: 'SOME FOOD',
+            merchant_name: 'SOME FOOD',
             transaction_category_id: TransactionCategory.find_by(name: 'Restaurant').id
           )
         )
