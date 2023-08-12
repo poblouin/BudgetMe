@@ -385,20 +385,6 @@
               ]
             },
             {
-              "name": "description",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-
-              ]
-            },
-            {
               "name": "id",
               "description": null,
               "type": {
@@ -409,6 +395,20 @@
                   "name": "ID",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            },
+            {
+              "name": "merchantName",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null,
@@ -1045,7 +1045,7 @@
               "deprecationReason": null
             },
             {
-              "name": "description",
+              "name": "merchantName",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -1108,7 +1108,7 @@
               "deprecationReason": null
             },
             {
-              "name": "description",
+              "name": "merchantName",
               "description": null,
               "type": {
                 "kind": "SCALAR",

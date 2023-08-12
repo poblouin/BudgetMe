@@ -1,0 +1,11 @@
+Transaction date,Transaction,Name,Memo,Amount
+8/3/2023,DEBIT,SOME FOOD,Rewards earned: 0.12 ~ Category: Restaurant,-23.99
+8/3/2023,DEBIT,TECH BILL,Rewards earned: 0.09 ~ Category: Bill Payment,-4.59
+8/2/2023,DEBIT,MARCHE ,Rewards earned: 0.61 ~ Category: Groceries,-30.47
+8/1/2023,DEBIT,PHONE CO,Rewards earned: 0.34 ~ Category: Other,-68.98
+7/30/2023,DEBIT,SOME MARCHE,Rewards earned: 0.21 ~ Category: Groceries,-10.34
+7/30/2023,DEBIT,TECH BILL,Rewards earned: 0.25 ~ Category: Bill Payment,-12.64
+7/29/2023,DEBIT,GAZ,Rewards earned: 1.08 ~ Category: Gas,-54.07
+7/29/2023,DEBIT,MARCHE,Rewards earned: 3.57 ~ Category: Groceries,-178.68
+7/29/2023,DEBIT,SOME RESTAURANT,Rewards earned: 0.20 ~ Category: Restaurant,-40.74
+7/29/2023,DEBIT,SOME OTHER RESTAURANT,Rewards earned: 0.06 ~ Category: Restaurant,-11.48

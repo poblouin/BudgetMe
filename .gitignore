@@ -20,6 +20,7 @@ logs
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
+imports
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
