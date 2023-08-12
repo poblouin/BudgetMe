@@ -19,6 +19,7 @@ services:
     # end dev
     volumes:
       - .:/app
+      - ./imports:/app/imports # figure out better way to do that
     ports:
       - "3000:3000"
     depends_on:
@@ -36,6 +37,8 @@ services:
       - ./ui:/app
     ports:
       - "8000:8000"
+    depends_on:
+      - db
 
 volumes:
   pg_data:
