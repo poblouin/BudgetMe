@@ -6,16 +6,18 @@ module Transactions
     end
 
     def import
-      CSV.foreach(csv_file, headers: headers?) do |row|
-        data = parser.parse(row: headers? ? row.fields : row)
-        transaction_category = transaction_category(data.fetch(:merchant_name), data.fetch(:category))
+      ActiveRecord::Base.transaction do
+        CSV.foreach(csv_file, headers: headers?) do |row|
+          data = parser.parse(row: headers? ? row.fields : row)
+          transaction_category = transaction_category(data.fetch(:merchant_name), data.fetch(:category))
 
-        Transaction.create!(
-          amount: data.fetch(:amount),
-          date: data.fetch(:date),
-          merchant_name: data.fetch(:merchant_name),
-          transaction_category_id: transaction_category.id
-        )
+          Transaction.create!(
+            amount: data.fetch(:amount),
+            date: data.fetch(:date),
+            merchant_name: data.fetch(:merchant_name),
+            transaction_category_id: transaction_category.id
+          )
+        end
       end
     end
 

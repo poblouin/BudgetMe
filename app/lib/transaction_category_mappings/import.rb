@@ -8,13 +8,15 @@ module TransactionCategoryMappings
     end
 
     def import
-      CSV.foreach(csv_file, headers: true) do |row|
-        transaction_category = transaction_category(row[1])
+      ActiveRecord::Base.transaction do
+        CSV.foreach(csv_file, headers: true) do |row|
+          transaction_category = transaction_category(row[1])
 
-        TransactionCategoryMapping.find_or_create_by!(
-          merchant_name: row[0],
-          transaction_category_id: transaction_category.id
-        )
+          TransactionCategoryMapping.find_or_create_by!(
+            merchant_name: row[0],
+            transaction_category_id: transaction_category.id
+          )
+        end
       end
     end
 
