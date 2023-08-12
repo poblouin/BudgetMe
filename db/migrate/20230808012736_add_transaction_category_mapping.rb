@@ -1,4 +1,4 @@
-class AddIndexTransactionCategoryMapping < ActiveRecord::Migration[7.0]
+class AddTransactionCategoryMapping < ActiveRecord::Migration[7.0]
   def change
     add_index(
       :transaction_category_mappings,

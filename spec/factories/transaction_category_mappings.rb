@@ -1,7 +1,5 @@
 FactoryBot.define do
-  factory :transaction do
-    amount { '9.99' }
-    date { '2022-09-06' }
+  factory :transaction_category_mapping do
     merchant_name { 'Some Merchant' }
 
     association :transaction_category

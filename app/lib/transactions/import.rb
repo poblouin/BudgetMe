@@ -8,7 +8,7 @@ module Transactions
     def import
       CSV.foreach(csv_file, headers: headers?) do |row|
         data = parser.parse(row: headers? ? row.fields : row)
-        transaction_category = transaction_category(data.fetch(:category))
+        transaction_category = transaction_category(data.fetch(:merchant_name), data.fetch(:category))
 
         Transaction.create!(
           amount: data.fetch(:amount),
@@ -44,8 +44,15 @@ module Transactions
                   end
     end
 
-    def transaction_category(category)
+    def transaction_category(merchant_name, category)
+      mapping = transaction_category_mapping(merchant_name)
+      return mapping.transaction_category if mapping.present?
+
       TransactionCategory.find_or_create_by!(name: category || TransactionCategory::UNCATEGORIZED)
+    end
+
+    def transaction_category_mapping(merchant_name)
+      TransactionCategoryMapping.find_by(merchant_name:)
     end
   end
 end

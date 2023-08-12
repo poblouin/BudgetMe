@@ -43,5 +43,26 @@ RSpec.describe Transactions::Import do
         expect { import }.to change(TransactionCategory, :count).by(1)
       end
     end
+
+    context 'when transaction category mappings are present' do
+      let(:bank) { :cibc }
+      let(:csv_file) { cibc_csv }
+
+      before do
+        create(:transaction_category_mapping, merchant_name: 'AMZ')
+        create(:transaction_category_mapping, merchant_name: 'MARCHE')
+        create(:transaction_category_mapping, merchant_name: 'WAL-MART')
+        create(:transaction_category_mapping, merchant_name: 'SOME RESTAURANT')
+        create(:transaction_category_mapping, merchant_name: 'CASHBACK')
+        create(:transaction_category_mapping, merchant_name: 'BOOKS')
+        create(:transaction_category_mapping, merchant_name: 'COFFEE SHOP')
+
+        import
+      end
+
+      it 'populates the transaction_category for every transaction' do
+        expect(Transaction.all.all? { |t| !t.transaction_category_id.nil? }).to be(true)
+      end
+    end
   end
 end
