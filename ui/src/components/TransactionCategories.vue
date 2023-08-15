@@ -1,0 +1,3 @@
+<template>
+  Transaction Categories
+</template>

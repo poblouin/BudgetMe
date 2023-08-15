@@ -1,3 +1,3 @@
 <template>
-  hello you
+  Oh Hello!
 </template>
