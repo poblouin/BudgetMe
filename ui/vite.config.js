@@ -1,4 +1,4 @@
-import {defineConfig} from 'vite'
+import { defineConfig } from 'vite'
 import eslint from 'vite-plugin-eslint'
 import vue from '@vitejs/plugin-vue'
 import vuetify from "vite-plugin-vuetify";
@@ -12,7 +12,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '~': '/src',
-      '@components': '/src/components'
+      '@components': '/src/components',
+      '@graphql': '/src/graphql'
     },
   },
   server: {

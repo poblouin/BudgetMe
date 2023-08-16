@@ -6,6 +6,7 @@ gem 'bootsnap', require: false
 gem 'graphql'
 gem 'pg'
 gem 'puma'
+gem 'rack-cors'
 gem 'rails'
 
 group :development, :test do

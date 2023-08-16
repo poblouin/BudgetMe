@@ -9,3 +9,9 @@ AllCops:
 
 RSpec/ExampleLength:
   CountAsOne: ['array', 'hash', 'heredoc']
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10

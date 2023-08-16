@@ -72,7 +72,7 @@ type Mutation {
 
 type Query {
   transactionCategories: [TransactionCategory!]!
-  transactions: [Transaction!]!
+  transactions(from: ISO8601Date, to: ISO8601Date): [Transaction!]!
 }
 
 type Transaction {
