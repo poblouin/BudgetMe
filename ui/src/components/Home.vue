@@ -49,33 +49,43 @@ const headers = [
 </script>
 
 <template>
-  <v-card width="100vw">
-    <v-card-title>
-      Date Range
-      <v-spacer />
-      <v-select
-        v-model="selectedDate"
-        :items="dateRange"
+  <v-row no-gutters>
+    <v-expansion-panels>
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          Filters
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-row no-gutters>
+            <v-col class="mr-4">
+              <v-text-field
+                v-model="search"
+                :clearable="true"
+                hide-details
+                label="Search"
+                single-line
+              />
+            </v-col>
+            <v-col>
+              <v-select
+                v-model="selectedDate"
+                :items="dateRange"
+                placeholder="Date Range"
+              />
+            </v-col>
+          </v-row>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
+    <v-row no-gutters>
+      <v-data-table
+        v-model:items-per-page="itemsPerPage"
+        :headers="headers"
+        :items="transactionsItems"
+        :search="search"
+        :sort-by="sortBy"
+        :hover="true"
       />
-    </v-card-title>
-    <v-card-title>
-      Transactions
-      <v-spacer />
-      <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
-      />
-    </v-card-title>
-    <v-data-table
-      v-model:items-per-page="itemsPerPage"
-      :headers="headers"
-      :items="transactionsItems"
-      :search="search"
-      :sort-by="sortBy"
-      :hover="true"
-    />
-  </v-card>
+    </v-row>
+  </v-row>
 </template>
