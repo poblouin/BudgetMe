@@ -30,10 +30,10 @@ const currentRoute = computed(() => {
         nav
       >
         <v-list-item
-          :active="currentRoute === 'Home'"
-          title="Home"
-          value="home"
-          to="/"
+          :active="currentRoute === 'Transactions'"
+          title="Transactions"
+          value="transactions"
+          to="/transactions"
         />
         <v-list-item
           :active="currentRoute === 'Transaction Categories'"
@@ -48,7 +48,9 @@ const currentRoute = computed(() => {
       class="d-flex align-center justify-center"
       style="min-height: 300px;"
     >
-      <router-view />
+      <v-card width="80vw">
+        <router-view />
+      </v-card>
     </v-main>
   </v-layout>
 </template>

@@ -81,11 +81,14 @@ const headers = [
       <v-data-table
         v-model:items-per-page="itemsPerPage"
         :headers="headers"
+        hide-default-footer
         :items="transactionsItems"
         :search="search"
         :sort-by="sortBy"
         :hover="true"
-      />
+      >
+        <template #bottom />
+      </v-data-table>
     </v-row>
   </v-row>
 </template>
