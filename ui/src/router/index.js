@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TransactionCategories from "@components/TransactionCategories.vue";
-import Transactions from "../components/Transactions.vue";
+import Transactions from "@components/Transactions.vue";
+import Budget from "@components/Budget.vue";
 
 const routes = [
     {
         path: '/',
-        redirect: '/transactions'
+        redirect: '/budget'
+    },
+    {
+        path: '/budget',
+        name: 'Budget',
+        component: Budget
     },
     {
         path: '/transactions',

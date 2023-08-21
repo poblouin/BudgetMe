@@ -30,6 +30,12 @@ const currentRoute = computed(() => {
         nav
       >
         <v-list-item
+          :active="currentRoute === 'Budget'"
+          title="Budget"
+          value="budget"
+          to="/budget"
+        />
+        <v-list-item
           :active="currentRoute === 'Transactions'"
           title="Transactions"
           value="transactions"
