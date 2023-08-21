@@ -218,6 +218,7 @@ input TransactionUpdate {
   amount: Float
   date: ISO8601Date
   merchantName: String
+  transactionCategoryId: ID
 }
 
 """

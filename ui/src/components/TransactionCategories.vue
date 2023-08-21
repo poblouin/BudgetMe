@@ -154,7 +154,7 @@ const deleteCategory = async () => {
         >
           <v-card>
             <v-card-title class="text-h5">
-              Are you sure you want to delete this item?
+              Are you sure you want to delete this category?
             </v-card-title>
             <v-card-actions>
               <v-spacer />

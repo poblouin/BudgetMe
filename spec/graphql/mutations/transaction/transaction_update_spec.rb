@@ -3,30 +3,65 @@ RSpec.describe Mutations::Transaction::TransactionUpdate do
   let(:result) { BudgetmeSchema.execute(query) }
 
   describe 'success' do
-    let(:query) do
-      <<~GQL
-        mutation {
-          transactionUpdate(
-            input: {
-              id: #{transaction.id}
-              params: { amount: 19.99 }
-            }) {
-            transaction {
-              id,
-              amount
-            }
-          }
-        }
-      GQL
-    end
     let(:return_obj) { result.to_h['data']['transactionUpdate']['transaction'] }
 
-    it 'updates the transaction' do
-      expect(return_obj).not_to be_nil
+    context 'when updating the amount' do
+      let(:query) do
+        <<~GQL
+          mutation {
+            transactionUpdate(
+              input: {
+                id: #{transaction.id}
+                params: { amount: 19.99 }
+              }) {
+              transaction {
+                id,
+                amount
+              }
+            }
+          }
+        GQL
+      end
+
+      it 'updates the transaction' do
+        expect(return_obj).not_to be_nil
+      end
+
+      it 'updates the transaction with the correct value' do
+        expect(return_obj.fetch('amount')).to eq(19.99)
+      end
     end
 
-    it 'updates the transaction with the correct value' do
-      expect(return_obj.fetch('amount')).to eq(19.99)
+    context 'when updating the transaction category' do
+      let(:query) do
+        <<~GQL
+          mutation {
+            transactionUpdate(
+              input: {
+                id: #{transaction.id}
+                params: { transactionCategoryId: #{transaction_category.id} }
+              }) {
+              transaction {
+                id,
+                amount,
+                transactionCategory {
+                  id,
+                }
+              }
+            }
+          }
+        GQL
+      end
+
+      let(:transaction_category) { create(:transaction_category) }
+
+      it 'updates the transaction' do
+        expect(return_obj).not_to be_nil
+      end
+
+      it 'updates the transaction with the correct value' do
+        expect(return_obj.fetch('transactionCategory').fetch('id').to_i).to eq(transaction_category.id)
+      end
     end
   end
 

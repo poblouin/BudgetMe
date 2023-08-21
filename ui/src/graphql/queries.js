@@ -17,6 +17,40 @@ export const transactions = gql`
     }
 `
 
+export const transactionUpdate = gql`
+    mutation transactionUpdate($input: TransactionUpdateInput!) {
+        transactionUpdate(input: $input) {
+            transaction {
+                id,
+                amount,
+                date,
+                merchantName,
+                transactionCategory {
+                    id,
+                    name,
+                }
+            }
+        }
+    }
+`
+
+export const transactionDelete = gql`
+    mutation transactionDelete($input: TransactionDeleteInput!) {
+        transactionDelete(input: $input) {
+            transaction {
+                id,
+                amount,
+                date,
+                merchantName,
+                transactionCategory {
+                    id,
+                    name,
+                }
+            }
+        }
+    }
+`
+
 // transaction categories
 export const transactionCategories = gql`
     query transactionCategories {
