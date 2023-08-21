@@ -1,4 +1,6 @@
 class BudgetmeSchema < GraphQL::Schema
+  max_complexity 5
+  max_depth 5
   mutation(Types::MutationType)
   query(Types::QueryType)
 

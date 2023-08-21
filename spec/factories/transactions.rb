@@ -4,6 +4,6 @@ FactoryBot.define do
     date { Time.zone.today }
     merchant_name { 'Some Merchant' }
 
-    association :transaction_category
+    transaction_category
   end
 end

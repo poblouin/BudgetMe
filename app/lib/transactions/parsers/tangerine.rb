@@ -7,7 +7,7 @@ module Transactions
     class Tangerine
       def parse(row:)
         category = row[3].match(/Category: (.*)/)[1]
-        category = category == 'Other' ? TransactionCategory::UNCATEGORIZED : category
+        category = TransactionCategory::UNCATEGORIZED if category == 'Other'
 
         {
           date: Date.strptime(row[0], '%m/%d/%Y'),
