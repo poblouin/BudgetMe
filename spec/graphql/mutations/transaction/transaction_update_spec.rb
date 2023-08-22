@@ -3,7 +3,7 @@ RSpec.describe Mutations::Transaction::TransactionUpdate do
   let(:result) { BudgetmeSchema.execute(query) }
 
   describe 'success' do
-    let(:return_obj) { result.to_h['data']['transactionUpdate']['transaction'] }
+    let(:return_obj) { result.to_h.dig('data', 'transactionUpdate', 'transaction') }
 
     context 'when updating the amount' do
       let(:query) do

@@ -3,9 +3,16 @@ require:
   - rubocop-graphql
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-factory_bot
 
 AllCops:
   NewCops: enable
+
+GraphQL/MaxComplexitySchema:
+  Enabled: false
+
+GraphQL/MaxDepthSchema:
+  Enabled: false
 
 RSpec/ExampleLength:
   CountAsOne: ['array', 'hash', 'heredoc']
