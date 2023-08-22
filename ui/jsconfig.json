@@ -4,7 +4,8 @@
     "paths": {
       "~": ["/src"],
       "@components": ["/src/components"],
-      "@graphql": ["/src/graphql"]
+      "@graphql": ["/src/graphql"],
+      "@helpers": ["/src/helpers"]
     }
   },
   "exclude": ["node_modules"]

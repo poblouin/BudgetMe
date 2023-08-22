@@ -13,7 +13,8 @@ export default defineConfig({
     alias: {
       '~': '/src',
       '@components': '/src/components',
-      '@graphql': '/src/graphql'
+      '@graphql': '/src/graphql',
+      '@helpers': '/src/helpers'
     },
   },
   server: {

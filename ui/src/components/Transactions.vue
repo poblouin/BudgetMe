@@ -1,9 +1,10 @@
 <script setup>
-import { eachMonthOfInterval, endOfMonth, format, formatISO, getYear } from "date-fns";
+import { endOfMonth, formatISO } from "date-fns";
 import { computed, nextTick, ref, watch } from "vue";
 import { useMutation, useQuery } from '@vue/apollo-composable'
 import { VDataTable } from "vuetify/labs/components";
 import { transactions, transactionDelete, transactionUpdate, transactionCategories } from "@graphql/queries.js";
+import { monthsListFormatted } from "@helpers/dates.js";
 
 // Dialog
 const dialog = ref(false)
@@ -86,20 +87,7 @@ const deleteTransaction = async () => {
 }
 
 // Date range
-const monthsList = () => {
-  const currentDate = new Date();
-
-  return eachMonthOfInterval({
-    start: new Date(getYear(currentDate) - 1, 0, 1),
-    end: currentDate,
-  }).reverse().map((date) => {
-    return {
-      title: format(date, 'yyyy MMMM'),
-      value: date,
-    }
-  })
-};
-const dateRange = monthsList();
+const dateRange = monthsListFormatted();
 const selectedDate = ref(dateRange[0].value);
 
 // Transactions
