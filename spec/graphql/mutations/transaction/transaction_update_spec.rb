@@ -54,6 +54,7 @@ RSpec.describe Mutations::Transaction::TransactionUpdate do
       end
 
       let(:transaction_category) { create(:transaction_category) }
+      let!(:mapping) { create(:transaction_category_mapping, merchant_name: transaction.merchant_name, transaction_category: transaction.transaction_category) }
 
       it 'updates the transaction' do
         expect(return_obj).not_to be_nil
@@ -61,6 +62,12 @@ RSpec.describe Mutations::Transaction::TransactionUpdate do
 
       it 'updates the transaction with the correct value' do
         expect(return_obj.fetch('transactionCategory').fetch('id').to_i).to eq(transaction_category.id)
+      end
+
+      it 'updates the mapping' do
+        result
+
+        expect(mapping.reload.transaction_category).to eq(transaction_category)
       end
     end
   end
