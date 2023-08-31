@@ -13,7 +13,7 @@ npm-install:
 	$(DC_UI_PREFIX) npm ci
 
 upgrade-all:
-	bundle update && cd ui && npm upgrade && cd - && dc up -d --build --force-recreate
+	bundle update && cd ui && npm upgrade && cd - && docker compose up -d --build --force-recreate
 
 # DB
 db-create:
