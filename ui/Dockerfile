@@ -1,4 +1,4 @@
-FROM node:lts-bullseye
+FROM node:current-bullseye
 
 WORKDIR /app
 COPY package.json package-lock.json ./
