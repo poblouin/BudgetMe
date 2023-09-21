@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   db:
-    image: postgres
+    image: postgres:15.4-bullseye
     volumes:
       - pg_data:/var/lib/postgresql/data
     ports:
