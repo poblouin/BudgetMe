@@ -181,13 +181,13 @@ const deleteCategory = async () => {
       <v-icon
         size="small"
         class="me-2"
-        @click="editItem(item.raw)"
+        @click="editItem(item)"
       >
         mdi-pencil
       </v-icon>
       <v-icon
         size="small"
-        @click="deleteItem(item.raw)"
+        @click="deleteItem(item)"
       >
         mdi-delete
       </v-icon>

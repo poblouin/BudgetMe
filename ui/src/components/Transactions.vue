@@ -16,7 +16,9 @@ const selectedCategory = ref()
 const transactionCategoriesQuery = useQuery(transactionCategories)
 const transactionCategoriesSelectItems = computed(() => {
   const items = transactionCategoriesQuery.result?.value?.transactionCategories ?? []
-  return items.map((item) => ({ title: item.name, value: item }))
+  return items
+      .toSorted((a, b) => a.name.localeCompare(b.name))
+      .map((item) => ({ title: item.name, value: item }))
 })
 const transactionUpdateMutation = useMutation(transactionUpdate)
 const transactionDeleteMutation = useMutation(transactionDelete)
@@ -220,13 +222,13 @@ const headers = [
           <v-icon
             size="small"
             class="me-2"
-            @click="editItem(item.raw)"
+            @click="editItem(item)"
           >
             mdi-pencil
           </v-icon>
           <v-icon
             size="small"
-            @click="deleteItem(item.raw)"
+            @click="deleteItem(item)"
           >
             mdi-delete
           </v-icon>
